@@ -114,3 +114,6 @@ if(__name__ == "__main__"):
         basis = st.text_input('(optional) input cost basis: \n\n (for example, you bought 20,000 BDV worth of unripe deposits for 10,000.)')
         if(address != '' and beansPerSeason != ''):
             getAPY(address.lower(), int(beansPerSeason), basis)
+    st.divider()
+    st.subheader("[Github](https://github.com/Brean0/CalcAPYUI)")
+    st.subheader("[Beanstalk](https://app.bean.money/)")
