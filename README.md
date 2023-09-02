@@ -1,5 +1,5 @@
 # Beanstalk APY
-Decodes farm functions into readable functions. Supports advancedPipe()
+Estimates a farmers overall APY with stalk growth and seeds.
 
 Hosted on https://beanstalkapy.streamlit.app/, or follow the steps outlined below for the CLI version: 
 
