@@ -92,18 +92,17 @@ def getAPY(address, beansEarnedPerSeason, basis):
     (totalSeeds, totalStalk, userBeans, userStalk) = iterateUser(totalStalk, totalSeeds , userStalk, userSeeds, beansEarnedPerSeason)
     with col2:
         st.write("Avg beans earned per season:", str(beansEarnedPerSeason))
-        st.write("total Stalk: {stalk:2,}".format(stalk = totalStalk))
-        st.write("total Seeds: {seeds:2,}".format(seeds = totalSeeds))
-        st.write("user Stalk:  {stalk:2,}".format(stalk = userStalk))
-        st.write("user Seeds:  {seeds:2,}".format(seeds = userSeeds))
-        st.write("user BDV:  {BDV:2,}".format(BDV = userBDV))
+        st.write("Total Stalk: {stalk:2,}".format(stalk = totalStalk))
+        st.write("Total Seeds: {seeds:2,}".format(seeds = totalSeeds))
+        st.write("User Stalk:  {stalk:2,}".format(stalk = userStalk))
+        st.write("User Seeds:  {seeds:2,}".format(seeds = userSeeds))
+        st.write("User BDV:  {BDV:2,}".format(BDV = userBDV))
         st.write("Beans earned in a year:  {beans:3,}".format(beans = userBeans))
         txt = "Overall apy: {:%}"
         if(basis != ''):
-            st.write("basis", basis)
-            userBDV = basis
-        else:
-            st.write(txt.format((userBeans + userBDV)/(userBDV) - 1))
+            st.write("Basis: {Basis:2,}".format(Basis = int(basis)))
+            userBDV = int(basis)
+        st.write(txt.format((userBeans + userBDV)/(userBDV) - 1))
         
 
 if(__name__ == "__main__"):
@@ -111,7 +110,7 @@ if(__name__ == "__main__"):
         st.title("Beanstalk APY")
         st.subheader("Estimates a farmers overall APY with stalk growth and seeds.")
         address = st.text_input('input address: ')
-        beansPerSeason = st.text_input(('input average bean minted over a year: '))
+        beansPerSeason = st.text_input(('input average bean minted per season over a year: '))
         basis = st.text_input('(optional) input cost basis: \n\n (for example, you bought 20,000 BDV worth of unripe deposits for 10,000.)')
         if(address != '' and beansPerSeason != ''):
             getAPY(address.lower(), int(beansPerSeason), basis)
