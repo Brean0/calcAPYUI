@@ -63,7 +63,7 @@ def getUserStuff(address):
     # # TODO, get seeds in a more programic way
     totalBDV = 0
     totalSeeds = 0
-    for i in range(5):
+    for i in range(len(userData)):
         depositedBDV = userData.iloc[i]['silo_assets_depositedBDV']
         totalSeeds += depositedBDV * getSeeds(userData.iloc[i]['silo_assets_token'])
         totalBDV += depositedBDV
